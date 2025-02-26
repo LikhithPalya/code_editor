@@ -41,8 +41,8 @@ export default function RootLayout({
             {children}
           </ConvexClientProvider>
 
-          <Footer />
           
+          <Footer />
         </body>
       </html>
     </ClerkProvider>

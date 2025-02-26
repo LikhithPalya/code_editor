@@ -2,8 +2,8 @@ import { currentUser } from "@clerk/nextjs/server"
 import { ConvexHttpClient } from "convex/browser"
 import { api } from "../../../../convex/_generated/api"
 import Link from "next/link"
-import { Blocks, Code2, Sparkles } from "lucide-react"
-import { SignedIn, UserButton } from "@clerk/nextjs"
+import { Blocks, Code2, Sparkles, User } from "lucide-react"
+import { SignedIn, SignedOut, SignInButton, UserButton } from "@clerk/nextjs"
 import ThemeSelector from "./ThemeSelector"
 import LanguageSelector from "./LanguageSelector"
 import RunButton from "./RunButton"
@@ -81,7 +81,7 @@ async function Header() {
         <div className="flex items-center gap-4">
           <div className="flex items-center gap-3">
             <ThemeSelector />
-            <LanguageSelector hasAccess={Boolean(convexUser?.isPro)} />
+            <LanguageSelector hasAccess={Boolean(convexUser?.isProPlan)} />
           </div>
 
           {!convexUser?.isProPlan && (
@@ -97,9 +97,13 @@ async function Header() {
               </span>
             </Link>
           )}
+          <SignedOut>
+           <SignInButton className="flex items-center gap-2 px-4 py-1.5 rounded-lg border border-gray-800 hover:border-gray-700 bg-gray-800/50 hover:bg-gray-700/50 transition-all duration-300"/>
+          </SignedOut>
 
           <SignedIn>
             <RunButton />
+            {/* <UserButton /> */}
           </SignedIn>
 
           <div className="pl-3 border-l border-gray-800">
