@@ -103,7 +103,6 @@ async function Header() {
 
           <SignedIn>
             <RunButton />
-            {/* <UserButton /> */}
           </SignedIn>
 
           <div className="pl-3 border-l border-gray-800">

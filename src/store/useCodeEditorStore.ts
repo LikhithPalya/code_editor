@@ -27,7 +27,7 @@ const getInitialState=()=>{
         fontSize:Number(savedFontSize), // because monaco editor wants it to be a number and not a string
     }
 }
-export const useCodeEditorStore = create<CodeEditorState>((set,get)=>{ //codeeditorstate is similar to defining customtypes
+export const useCodeEditorStore = create<CodeEditorState>((set,get)=>{ //code editorstore is similar to defining customtypes
     
     const initialState = getInitialState();
 
@@ -40,7 +40,7 @@ export const useCodeEditorStore = create<CodeEditorState>((set,get)=>{ //codeedi
         executionResult:null,
 
         getCode:()=> get().editor?.getValue() || "",
-        //TODO
+        //TODO: check why the getValue() is showing error
 
         setEditor: (editor:Monaco)=>{
             const savedCode = localStorage.getItem(`editor-code-${get().language}`)
@@ -72,6 +72,9 @@ export const useCodeEditorStore = create<CodeEditorState>((set,get)=>{ //codeedi
               error: null,
             });
           },
+          runCode: async()=>{
+            //TODO
+          }
 
-    }
+    };
 })
