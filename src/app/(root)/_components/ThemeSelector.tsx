@@ -19,7 +19,7 @@ function ThemeSelector() {
   const{theme, setTheme} = useCodeEditorStore();
   const dropdownRef = useRef<HTMLDivElement>(null);
   const currentTheme = THEMES.find((t)=>t.id === theme)
-  const [mounted, setMounted] = useState(false);
+  // const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
