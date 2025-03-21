@@ -13,7 +13,6 @@ function ShareSnippetDialog({ onClose }: { onClose: () => void }) {
 
   const handleShare = async (e: React.FormEvent) => {
     e.preventDefault();
-
     setIsSharing(true);
 
     try {
@@ -22,6 +21,7 @@ function ShareSnippetDialog({ onClose }: { onClose: () => void }) {
       onClose();
       setTitle("");
       toast.success("Snippet shared successfully");
+ 
     } catch (error) {
       console.log("Error creating snippet:", error);
       toast.error("Error creating snippet");

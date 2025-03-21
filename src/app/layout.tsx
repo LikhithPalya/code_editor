@@ -6,6 +6,7 @@ import {
 } from '@clerk/nextjs'
 import ConvexClientProvider from "@/components/providers/ConvexClientProvider";
 import Footer from "@/components/Footer";
+import { Toaster } from "react-hot-toast";
 
 
 
@@ -43,6 +44,7 @@ export default function RootLayout({
 
           
           <Footer />
+          <Toaster/>
         </body>
       </html>
     </ClerkProvider>
